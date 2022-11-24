@@ -15,6 +15,7 @@
         <!-- <form id="form" @submit="return onSubmit(event)"> -->
         <form id="form">
 
+            <!-- Personal Info -->
             <fieldset>
                 <legend>  Personal Info:</legend>
                 <div class="form-group">
@@ -44,68 +45,71 @@
                 </div>
             </fieldset>
 
+            <!-- Income Info -->
             <fieldset>
                 <legend>  Income Info:</legend>
                 <div class="form-group">
                     <label for="income"> Income </label>
-                    <input id="income" type="number" placeholder="How much do you earn in a month?" required />
+                    <input id="income" type="number" placeholder="How much do you earn in a month?" required onblur="revealIncome(this.value)" />
                 </div>
             </fieldset>
+
+            <!-- Categories Info-->
             <fieldset class="budget-categories">
                 <legend>  Budget Categories:</legend>
-                <p class="incomeLeft">
+                <p>
                     Income Left:
-                    &#8358; <span>500000</span>
+                    &#8358;<span id="incomeLeft">0</span>
                 </p>
                 <div class="form-group">
                     <label for="cat1"> Category 1 </label>
                     <input id="cat1" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat1Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat1Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                <div class="form-group">
                     <label for="cat2"> Category 2 </label>
                     <input id="cat2" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat2Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat2Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat3"> Category 3 </label>
                     <input id="cat3" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat3Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat3Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat4"> Category 4 </label>
                     <input id="cat4" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat4Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat4Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat5"> Category 5 </label>
                     <input id="cat5" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat5Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat5Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat6"> Category 6 </label>
                     <input id="cat6" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat6Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat6Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat7"> Category 7 </label>
                     <input id="cat7" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat7Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat7Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat8"> Category 8 </label>
                     <input id="cat8" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat8Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat8Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat9"> Category 9 </label>
                     <input id="cat9" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat9Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat9Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
                 <div class="form-group">
                     <label for="cat10"> Category 10 </label>
                     <input id="cat10" type="text" placeholder="Enter expenses name" required />
-                    <input id="cat10Value" type="number" placeholder="Enter amount" required />
+                    <input id="cat10Value" class="catVal" type="number" placeholder="Enter amount" required onblur="calcIncomeBal(this.value)" />
                 </div>
             </fieldset>
 
@@ -115,6 +119,8 @@
             </div>
         </form>
     </div>
+
+    <!-- Modal -->
     <div class="modal" id="modal">
         <div class="card">
             <div class="header"> Budget Details </div>
@@ -122,27 +128,27 @@
 
                 <div class="row">
                     <div class="col form-value">
-                        <i> Uchechukwu Madukwe </i>
+                        <i id="modal_name"></i>
                         <div> Full Name </div>
                     </div>
                     <div class="col form-value">
-                        <i> 25 </i>
+                        <i id="modal_age"></i>
                         <div> Age </div>
                     </div>
                     <div class="col form-value">
-                        <i> Male </i>
+                        <i id="modal_gender"></i>
                         <div> Gender </div>
                     </div>
                     <div class="col form-value">
-                        <i> Single </i>
+                        <i id="modal_status"></i>
                         <div> Marital Status </div>
                     </div>
                     <div class="col form-value">
-                        <i> 40 </i>
+                        <i id="modal_dependents"></i>
                         <div> Number of Dependents </div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 40 </i>
+                        &#8358;<i id="modal_income"></i>
                         <div> Income </div>
                     </div>
                 </div>
@@ -150,63 +156,62 @@
                 <div class="row">
                     <!-- Categories Section -->
                     <div class="col form-value">
-                        &#8358; <i> 4000 </i>
-                        <b> 50 </b>%
-                        <div> Food </div>
+                        &#8358; <i id="modal_cat1Value"></i>
+                        (<b id="modal_cat1Percentage"></b>%)
+                        <div id="modal_cat1"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat2Value"></i>
+                        (<b id="modal_cat2Percentage"></b>%)
+                        <div id="modal_cat2"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat3Value"></i>
+                        (<b id="modal_cat3Percentage"></b>%)
+                        <div id="modal_cat3"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat4Value"></i>
+                        (<b id="modal_cat4Percentage"></b>%)
+                        <div id="modal_cat4"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat5Value"></i>
+                        (<b id="modal_cat5Percentage"></b>%)
+                        <div id="modal_cat5"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat6Value"></i>
+                        (<b id="modal_cat6Percentage"></b>%)
+                        <div id="modal_cat6"></div>
                     </div>
                 </div>
-
+                
                 <div class="row">
-                    
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat7Value"></i>
+                        (<b id="modal_cat7Percentage"></b>%)
+                        <div id="modal_cat7"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat8Value"></i>
+                        (<b id="modal_cat8Percentage"></b>%)
+                        <div id="modal_cat8"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat9Value"></i>
+                        (<b id="modal_cat9Percentage"></b>%)
+                        <div id="modal_cat9"></div>
                     </div>
                     <div class="col form-value">
-                        &#8358; <i> 200 </i>
-                        <b> 5 </b>%
-                        <div> Transport </div>
+                        &#8358; <i id="modal_cat10Value"></i>
+                        (<b id="modal_cat10Percentage"></b>%)
+                        <div id="modal_cat10"></div>
                     </div>
                 </div>
             </div>
             <div class="action-btn text-right">
-                <button class="danger" id="closeModal"> Close </button>
+                <button id="closeModal"> Close </button>
             </div>
         </div>
     </div>
