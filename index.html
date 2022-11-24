@@ -1,68 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <!---<title>  Automated Budget Calculator </title>--->
-    <link rel="stylesheet" href="css/styles.css">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Uche Madukwe Budget Calculator </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
-  <div class="container">
-    <div class="title">Budget Calculator</div>
-    <div class="content">
-      <form action="solution.html">
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">First Name</span>
-            <input type="text" placeholder="Enter your First Name" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter your Last Name" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Marital Status</span>
-            <input type="text" placeholder="Enter your Marital Status" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Income</span>
-            <input type="number" placeholder="Enter your Income" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Age</span>
-            <input type="number" placeholder="Enter your Age" required>
-          </div>
-          <div class="input-box">
-            <span class="details">No of Dependents</span>
-            <input type="number" placeholder="Enter No of Dependents" required>
-          </div>
-        </div>
-        <div class="gender-details" required>
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3" checked required>
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
-        </div>
-        <div class="button">
-          <input type="submit" value="Calculate">
-        </div>
-      </form>
-    </div>
-  </div>
+    <div class="wrapper">
+        <div class="text-center fnt-40 fnt-bold"> Budget Form </div>
+        <p class="text-red"> Please fill in the form to enagage the calculator ⚙️</p>
 
+        <form action="#" @submit="">
+
+            <fieldset>
+                <legend>  Personal Info:</legend>
+                <div class="form-group">
+                    <label for="name"> Full Name </label>
+                    <input id="name" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="age"> Age </label>
+                    <input id="age" type="number" placeholder="How old are you?" required />
+                </div>
+                <div class="form-group">
+                    <label for="gender"> Gender </label> 
+                    <br><br>
+                    <input id="gender" name="gender" value="male" type="radio"  required /> Male
+                    <input id="gender" name="gender" value="female" type="radio"  required /> Female
+                </div>
+                <div class="form-group">
+                    <label for="status"> Marital Status </label>
+                    <br><br>
+                    <input id="status" name="status" value="single" type="radio"  required /> Single
+                    <input id="status" name="status" value="married" type="radio"  required /> Married
+                    <input id="status" name="status" value="divorced" type="radio"  required /> Divorced
+                </div>
+                <div class="form-group">
+                    <label for="dependents"> No. Dependents </label>
+                    <input id="dependents" type="number" placeholder="How many dependents have you?" required />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>  Income Info:</legend>
+                <div class="form-group">
+                    <label for="income"> Income </label>
+                    <input id="income" type="number" placeholder="How much do you earn in a month?" required />
+                </div>
+            </fieldset>
+            <fieldset class="budget-categories">
+                <legend>  Budget Categories:</legend>
+                <p class="incomeLeft">
+                    Income Left:
+                    &#8358; <span>500000</span>
+                </p>
+                <div class="form-group">
+                    <label for="cat1"> Category 1 </label>
+                    <input id="cat1" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat1Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat2"> Category 2 </label>
+                    <input id="cat2" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat2Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat3"> Category 3 </label>
+                    <input id="cat3" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat3Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat4"> Category 4 </label>
+                    <input id="cat4" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat4Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat5"> Category 5 </label>
+                    <input id="cat5" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat5Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat6"> Category 6 </label>
+                    <input id="cat6" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat6Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat7"> Category 7 </label>
+                    <input id="cat7" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat7Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat8"> Category 8 </label>
+                    <input id="cat8" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat8Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat9"> Category 9 </label>
+                    <input id="cat9" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat9Value" type="number" placeholder="Enter amount" required />
+                </div>
+                <div class="form-group">
+                    <label for="cat10"> Category 10 </label>
+                    <input id="cat10" type="text" placeholder="Enter expenses name" required />
+                    <input id="cat10Value" type="number" placeholder="Enter amount" required />
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <button type="reset"> Clear Form </button>
+                <button type="submit"> Calculate Budget 🧮 </button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
